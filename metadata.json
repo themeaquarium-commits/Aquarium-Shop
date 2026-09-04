@@ -1,0 +1,6 @@
+{
+  "name": "Theme Aquarium",
+  "description": "Premier custom aquarium fabrication, aquascaping, marine reef setups, and architectural aquarium engineering for residences, corporate offices, hotels, and designers in Chennai.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
