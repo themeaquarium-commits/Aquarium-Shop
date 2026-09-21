@@ -13,12 +13,16 @@ import {
   Sparkles,
   Layers,
   Fish,
-  Compass
+  Compass,
+  Waves,
+  Wrench,
+  Building2
 } from 'lucide-react';
 import { ThemeAquariumLogo } from './ThemeAquariumLogo';
+import { useRouter, Link } from '../context/RouterContext';
 
 interface HeaderProps {
-  activeTab: string;
+  activeTab?: string;
   onNavigateTab?: (tab: 'home' | 'shop' | 'services' | 'about' | 'contact') => void;
   setActiveTab?: (tab: string) => void;
   onSelectCategory?: (category: string | null) => void;
@@ -32,7 +36,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  activeTab,
+  activeTab: propActiveTab,
   onNavigateTab,
   setActiveTab,
   onSelectCategory,
@@ -44,6 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
   searchQuery: propSearchQuery,
   setSearchQuery: propSetSearchQuery,
 }) => {
+  const { path, navigate } = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [internalSearch, setInternalSearch] = useState('');
@@ -52,40 +57,20 @@ export const Header: React.FC<HeaderProps> = ({
   const setSearchQuery = propSetSearchQuery || setInternalSearch;
 
   const navLinks = [
-    { id: 'home', label: 'Home', action: 'tab', tab: 'home' as const },
-    { id: 'shop', label: 'Shop Catalogue', action: 'tab', tab: 'shop' as const },
-    { id: 'aquascaping', label: 'Aquascaping', action: 'cat', cat: 'aquascaping' },
-    { id: 'custom-tanks', label: 'Custom Tanks', action: 'custom' },
-    { id: 'fish', label: 'Live Fish', action: 'cat', cat: 'live-freshwater-fish' },
-    { id: 'plants', label: 'Aquatic Plants', action: 'cat', cat: 'aquatic-plants' },
-    { id: 'services', label: 'Services & AMC', action: 'tab', tab: 'services' as const },
-    { id: 'about', label: 'About & Visit', action: 'tab', tab: 'about' as const },
-    { id: 'contact', label: 'Contact', action: 'tab', tab: 'contact' as const },
+    { id: 'home', label: 'Home', path: '/' },
+    { id: 'shop', label: 'Shop Catalogue', path: '/shop' },
+    { id: 'aquascaping', label: 'Aquascaping', path: '/aquascaping-chennai' },
+    { id: 'custom-tanks', label: 'Custom Tanks', path: '/custom-aquarium-chennai' },
+    { id: 'marine', label: 'Marine & Reef', path: '/marine-reef-aquarium-chennai' },
+    { id: 'services', label: 'Services & AMC', path: '/services' },
+    { id: 'locations', label: 'Locations', path: '/aquarium-chennai-locations' },
+    { id: 'about', label: 'About & Visit', path: '/about' },
+    { id: 'contact', label: 'Contact', path: '/contact' },
   ];
 
-  const handleNavClick = (target: string | typeof navLinks[0]) => {
+  const handleNavClick = (targetPath: string) => {
     setMobileMenuOpen(false);
-    if (typeof target === 'string') {
-      const found = navLinks.find(l => l.id === target);
-      if (found) {
-        handleNavClick(found);
-      } else {
-        if (onNavigateTab) onNavigateTab(target as any);
-        else if (setActiveTab) setActiveTab(target);
-      }
-      return;
-    }
-
-    if (target.action === 'tab' && target.tab) {
-      if (onNavigateTab) onNavigateTab(target.tab);
-      else if (setActiveTab) setActiveTab(target.tab);
-    } else if (target.action === 'cat' && target.cat) {
-      if (onSelectCategory) onSelectCategory(target.cat);
-      else if (onNavigateTab) onNavigateTab('shop');
-    } else if (target.action === 'custom') {
-      onOpenProjectEnquiry();
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate(targetPath);
   };
 
   const openWhatsAppGeneral = () => {
@@ -157,11 +142,11 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
-              const isActive = activeTab === link.id;
+              const isActive = link.path === '/' ? path === '/' : path.startsWith(link.path);
               return (
-                <button
+                <Link
                   key={link.id}
-                  onClick={() => handleNavClick(link.id)}
+                  to={link.path}
                   className={`px-3 py-2 rounded-sm text-sm font-medium transition-all ${
                     isActive
                       ? 'text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 shadow-sm'
@@ -169,7 +154,7 @@ export const Header: React.FC<HeaderProps> = ({
                   }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               );
             })}
           </nav>
@@ -203,11 +188,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   onClick={() => {
                     setSearchOpen(true);
-                    if (onNavigateTab) {
-                      onNavigateTab('shop');
-                    } else if (setActiveTab) {
-                      setActiveTab('shop');
-                    }
+                    navigate('/shop');
                   }}
                   className="p-2.5 rounded-sm bg-slate-900/70 hover:bg-slate-800 text-slate-300 hover:text-emerald-400 border border-slate-800 hover:border-emerald-500/30 transition-all"
                   title="Search products"
@@ -271,72 +252,98 @@ export const Header: React.FC<HeaderProps> = ({
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#071118]/98 border-b border-emerald-500/20 px-4 pt-3 pb-6 space-y-3 shadow-2xl backdrop-blur-xl animate-in slide-in-from-top duration-200">
           <div className="grid grid-cols-2 gap-2 pb-2">
-            <button
-              onClick={() => handleNavClick('home')}
+            <Link
+              to="/"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-2 p-2.5 rounded-sm bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200"
             >
               <Compass className="w-4 h-4 text-emerald-400" />
               <span>Home</span>
-            </button>
-            <button
-              onClick={() => handleNavClick('shop')}
+            </Link>
+            <Link
+              to="/shop"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-2 p-2.5 rounded-sm bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200"
             >
               <ShoppingBag className="w-4 h-4 text-emerald-400" />
               <span>All Products</span>
-            </button>
-            <button
-              onClick={() => handleNavClick('aquascaping')}
+            </Link>
+            <Link
+              to="/aquascaping-chennai"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-2 p-2.5 rounded-sm bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200"
             >
               <Sparkles className="w-4 h-4 text-emerald-400" />
               <span>Aquascaping</span>
-            </button>
-            <button
-              onClick={() => handleNavClick('custom-tanks')}
+            </Link>
+            <Link
+              to="/custom-aquarium-chennai"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-2 p-2.5 rounded-sm bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200"
             >
               <Layers className="w-4 h-4 text-emerald-400" />
               <span>Custom Tanks</span>
-            </button>
-            <button
-              onClick={() => handleNavClick('fish')}
+            </Link>
+            <Link
+              to="/marine-reef-aquarium-chennai"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2 p-2.5 rounded-sm bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200"
+            >
+              <Waves className="w-4 h-4 text-cyan-400" />
+              <span>Marine Reef</span>
+            </Link>
+            <Link
+              to="/koi-pond-design-chennai"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-2 p-2.5 rounded-sm bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200"
             >
               <Fish className="w-4 h-4 text-emerald-400" />
-              <span>Live Fish</span>
-            </button>
-            <button
-              onClick={() => handleNavClick('plants')}
-              className="flex items-center gap-2 p-2.5 rounded-sm bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200"
-            >
-              <Sparkles className="w-4 h-4 text-emerald-400" />
-              <span>Aquatic Plants</span>
-            </button>
+              <span>Koi Ponds</span>
+            </Link>
           </div>
 
           <div className="space-y-1 border-t border-slate-800 pt-3">
-            <button
-              onClick={() => handleNavClick('services')}
+            <Link
+              to="/services"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full text-left px-3 py-2 rounded-sm text-sm text-slate-300 hover:bg-slate-900 flex items-center justify-between"
             >
-              <span>Services & Maintenance (AMC)</span>
+              <span className="flex items-center gap-2">
+                <Wrench className="w-4 h-4 text-emerald-400" />
+                <span>Services & Maintenance (AMC)</span>
+              </span>
               <ChevronDown className="w-4 h-4 -rotate-90 text-slate-500" />
-            </button>
-            <button
-              onClick={() => handleNavClick('b2b')}
+            </Link>
+            <Link
+              to="/commercial-corporate-aquariums"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full text-left px-3 py-2 rounded-sm text-sm text-slate-300 hover:bg-slate-900 flex items-center justify-between"
             >
-              <span>Corporate / Architect Solutions</span>
+              <span className="flex items-center gap-2">
+                <Building2 className="w-4 h-4 text-emerald-400" />
+                <span>Commercial / Architect Solutions</span>
+              </span>
               <ChevronDown className="w-4 h-4 -rotate-90 text-slate-500" />
-            </button>
-            <button
-              onClick={() => handleNavClick('about')}
+            </Link>
+            <Link
+              to="/aquarium-chennai-locations"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-left px-3 py-2 rounded-sm text-sm text-slate-300 hover:bg-slate-900 flex items-center justify-between"
+            >
+              <span className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-emerald-400" />
+                <span>Chennai Service Locations</span>
+              </span>
+              <ChevronDown className="w-4 h-4 -rotate-90 text-slate-500" />
+            </Link>
+            <Link
+              to="/about"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full text-left px-3 py-2 rounded-sm text-sm text-slate-300 hover:bg-slate-900 flex items-center justify-between"
             >
               <span>Store Location & Hours</span>
               <ChevronDown className="w-4 h-4 -rotate-90 text-slate-500" />
-            </button>
+            </Link>
           </div>
 
           {/* Quick Action Buttons in Mobile */}

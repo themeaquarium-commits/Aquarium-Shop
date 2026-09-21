@@ -1,116 +1,553 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Primary Pages -->
+
+  <!-- Homepage -->
   <url>
     <loc>https://themeaquarium.com/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://themeaquarium.com/images/hero-aquarium.jpg</image:loc>
-      <image:title>Theme Aquarium Chennai - Luxury Custom Aquariums &amp; Aquascaping</image:title>
+      <image:title>Theme Aquarium Chennai - Luxury Custom Aquariums, Aquascaping &amp; Marine Reefs</image:title>
     </image:image>
   </url>
 
+  <!-- Main Pages & Specialist Services -->
   <url>
     <loc>https://themeaquarium.com/shop</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/fancy-guppy-planted-schoolers.jpg</image:loc>
+      <image:title>Aquarium Shop Chennai | Exotic Fish, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/services</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/planted-stream-waterfall.jpg</image:loc>
+      <image:title>Aquarium Services &amp; AMC Maintenance Chennai | Theme Aquarium</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/about</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/theme-aquarium-logo.png</image:loc>
+      <image:title>About Theme Aquarium Chennai | Master Aquascapers &amp; Custom Fabricators</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/contact</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/hero-aquarium.jpg</image:loc>
+      <image:title>Contact Theme Aquarium Adyar Chennai | Store Directions &amp; WhatsApp</image:title>
+    </image:image>
   </url>
-
-  <!-- High-Value Specialist Service Target URLs -->
   <url>
     <loc>https://themeaquarium.com/custom-aquarium-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/custom-starphire-tank.jpg</image:loc>
+      <image:title>Custom Aquarium Fabrication Chennai | Starphire Glass Built-In Tanks</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/aquascaping-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/nature-aquascaping.jpg</image:loc>
+      <image:title>Nature Aquarium Aquascaping Chennai | Iwagumi &amp; Planted Tank Studio</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/marine-reef-aquarium-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/saltwater-clownfish-biotope.jpg</image:loc>
+      <image:title>Marine Reef Aquarium Setup Chennai | Saltwater Coral &amp; Clownfish Tanks</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/koi-pond-design-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/luxury-koi-pond-waterfall.jpg</image:loc>
+      <image:title>Koi Pond Design &amp; Biological Filtration Chennai | Luxury Outdoor Waterfalls</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/aquarium-amc-maintenance-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/canister-filter-system.jpg</image:loc>
+      <image:title>Aquarium AMC &amp; Maintenance Service Chennai | Bi-Weekly Cleaning</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/commercial-corporate-aquariums</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/custom-starphire-tank.jpg</image:loc>
+      <image:title>Commercial &amp; Corporate Aquariums Chennai | Hotels, Offices &amp; Architects</image:title>
+    </image:image>
   </url>
-
-  <!-- Localized Chennai Region Targets -->
+  <url>
+    <loc>https://themeaquarium.com/aquarium-chennai-locations</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/hero-aquarium.jpg</image:loc>
+      <image:title>Theme Aquarium Service Locations Chennai | Adyar, ECR, OMR &amp; Beyond</image:title>
+    </image:image>
+  </url>
   <url>
     <loc>https://themeaquarium.com/aquarium-adyar-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/hero-aquarium.jpg</image:loc>
+      <image:title>Theme Aquarium Adyar Chennai | Flagship Store, Livestock &amp; Aquascaping</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/aquarium-ecr-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/luxury-koi-pond-waterfall.jpg</image:loc>
+      <image:title>Custom Aquariums &amp; Koi Ponds ECR Chennai | Luxury Villa Specialists</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/aquarium-omr-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/canister-filter-system.jpg</image:loc>
+      <image:title>Aquarium Services OMR Chennai | IT Parks, Apartments &amp; Maintenance</image:title>
+    </image:image>
   </url>
-
   <url>
     <loc>https://themeaquarium.com/aquarium-anna-nagar-chennai</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/cave-hardscape-aquascape.jpg</image:loc>
+      <image:title>Custom Aquariums &amp; AMC Anna Nagar Chennai | Theme Aquarium</image:title>
+    </image:image>
   </url>
+  <url>
+    <loc>https://themeaquarium.com/aquarium-velachery-chennai</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/fancy-guppy-aquarium.jpg</image:loc>
+      <image:title>Aquarium Shop &amp; Maintenance Velachery Chennai | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+
+  <!-- Category Pages (Breadcrumb: Theme Aquarium / Products Catalog / [Category]) -->
+  <url>
+    <loc>https://themeaquarium.com/category/aquarium-fish</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/fancy-guppy-planted-schoolers.jpg</image:loc>
+      <image:title>Aquarium Fish Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/aquatic-plants</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/tissue-culture-monte-carlo.jpg</image:loc>
+      <image:title>Aquatic Plants Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/planted-aquarium</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/theme-60p-complete-nature-system.jpg</image:loc>
+      <image:title>Planted Aquarium Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/aquascaping</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/cave-hardscape-aquascape.jpg</image:loc>
+      <image:title>Aquascaping Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/aquarium-tanks</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/custom-starphire-tank.jpg</image:loc>
+      <image:title>Aquarium Tanks Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/marine-aquarium</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/clownfish-green-anemone.jpg</image:loc>
+      <image:title>Marine Aquarium Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/aquarium-equipment</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/canister-filter-system.jpg</image:loc>
+      <image:title>Aquarium Equipment Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/aquarium-accessories</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/cave-hardscape-aquascape.jpg</image:loc>
+      <image:title>Aquarium Accessories Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/fish-food</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/fancy-guppy-aquarium.jpg</image:loc>
+      <image:title>Fish Food Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/co2-systems</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/pressurized-co2-kit.jpg</image:loc>
+      <image:title>CO₂ Systems Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/filters-media</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/canister-filter-system.jpg</image:loc>
+      <image:title>Filters &amp; Media Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/lights</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/smart-wrgb-light.jpg</image:loc>
+      <image:title>Lights Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/soil-substrates</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/aqua-soil-substrate.jpg</image:loc>
+      <image:title>Soil &amp; Substrates Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/fertilizers-additives</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/theme-master-plant-liquid-fertilizer.jpg</image:loc>
+      <image:title>Fertilizers &amp; Additives Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/shrimp</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/cherry-shrimp-colony.jpg</image:loc>
+      <image:title>Shrimp Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/category/terrariums</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/artisan-moss-terrarium-sphere.jpg</image:loc>
+      <image:title>Terrariums Chennai | Live Stock, Plants &amp; Aquascaping Gear | Theme Aquarium</image:title>
+    </image:image>
+  </url>
+
+  <!-- Individual Product Pages (Breadcrumb: Theme Aquarium / Products Catalog / [Category] / [Product]) -->
+  <url>
+    <loc>https://themeaquarium.com/product/fish-betta-halfmoon-king</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/show-halfmoon-betta.jpg</image:loc>
+      <image:title>Show-Grade Halfmoon Betta (Blue &amp; Mustard) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/fish-ranchu-goldfish-tri</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/japanese-ranchu-goldfish.jpg</image:loc>
+      <image:title>Imported Japanese Ranchu Goldfish (Calico) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/fish-cardinal-tetra-school</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/fancy-guppy-planted-schoolers.jpg</image:loc>
+      <image:title>Fancy Guppies &amp; Planted Schoolers Collection | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/fish-flowerhorn-kamfa</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/flowerhorn-super-red.jpg</image:loc>
+      <image:title>Super Red Dragon Flowerhorn (High Kok Development) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/plant-monte-carlo-tc</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/tissue-culture-monte-carlo.jpg</image:loc>
+      <image:title>Micranthemum &quot;Monte Carlo&quot; (In-Vitro Tissue Culture Cup) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/plant-anubias-nana-petite</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/anubias-nana-petite-lava-stone.jpg</image:loc>
+      <image:title>Anubias Nana Petite on Lava Stone | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/plant-rotala-h-ra</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/rotala-rotundifolia-hra.jpg</image:loc>
+      <image:title>Rotala Rotundifolia &quot;H&apos;ra&quot; (Stem Bunch of 15) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/tank-nature-set-60p</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/theme-60p-complete-nature-system.jpg</image:loc>
+      <image:title>Theme 60P Complete Nature Aquascape System (60x30x36cm) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/scape-seiryu-stone-box</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/black-dragon-seiryu-stones.jpg</image:loc>
+      <image:title>Black Dragon &amp; Seiryu Aquascaping Stones (5 Kg Selection) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/scape-spiderwood-driftwood</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/natural-branching-spiderwood.jpg</image:loc>
+      <image:title>Natural Branching Spiderwood Centerpiece | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/scape-pro-tool-kit</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/aquascaping-tools-kit.jpg</image:loc>
+      <image:title>Pro Stainless Steel Aquascaping 5-Piece Tool Kit &amp; Pouch | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/tank-rimless-90p-ultra</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/custom-starphire-tank.jpg</image:loc>
+      <image:title>Theme Signature 90P Rimless Ultra-Clear Tank (90x45x45cm) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/marine-reef-salt-mix-20kg</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/red-sea-coral-pro-marine-salt.jpg</image:loc>
+      <image:title>Red Sea Coral Pro Marine Salt &amp; Live Clownfish Diet | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/eq-canister-filter-oase</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/canister-filter-system.jpg</image:loc>
+      <image:title>High-Flow Biological Canister Filter with Built-in Pre-Filter | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/co2-complete-pro-kit</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/pressurized-co2-kit.jpg</image:loc>
+      <image:title>Theme Professional Pressurized CO₂ Kit with Solenoid &amp; Diffuser | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/light-wrgb2-pro-60</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/smart-wrgb-light.jpg</image:loc>
+      <image:title>Full Spectrum Smart App WRGB2 Aquarium Light (60cm) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/soil-active-planted-9l</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/aqua-soil-substrate.jpg</image:loc>
+      <image:title>Theme Bio-Active Volcanic Aqua Soil (9 Litre Bag) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/fert-all-in-one-500ml</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/theme-master-plant-liquid-fertilizer.jpg</image:loc>
+      <image:title>Theme Master Plant Liquid All-In-One Fertilizer (500ml) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/shrimp-bloody-mary-10</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/cherry-shrimp-colony.jpg</image:loc>
+      <image:title>Bloody Mary Neocaridina Dwarf Shrimp (Pack of 10) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/food-hikari-micro-pellets</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/fancy-guppy-aquarium.jpg</image:loc>
+      <image:title>Hikari Micro Pellets Premium Daily Diet (45g) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://themeaquarium.com/product/terra-rainforest-dome-bespoke</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://themeaquarium.com/images/artisan-moss-terrarium-sphere.jpg</image:loc>
+      <image:title>Artisan Sealed Rainforest Moss Terrarium (Glass Sphere) | Theme Aquarium Chennai</image:title>
+    </image:image>
+  </url>
+
 </urlset>

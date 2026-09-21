@@ -17,6 +17,8 @@ import {
 import { PRODUCTS_DATA } from '../data/products';
 import { CATEGORIES_DATA } from '../data/categories';
 import { Product } from '../types';
+import { Link } from '../context/RouterContext';
+import { Breadcrumb } from '../components/Breadcrumb';
 
 interface ShopPageProps {
   selectedCategory: string | null;
@@ -96,18 +98,21 @@ export const ShopPage: React.FC<ShopPageProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb & Header */}
-        <div className="mb-8 space-y-2">
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
-            <span>Theme Aquarium</span>
-            <span>/</span>
-            <span className="text-emerald-400">Products Catalog</span>
-            {selectedCategory && (
-              <>
-                <span>/</span>
-                <span className="text-white capitalize font-semibold">{selectedCategory.replace('-', ' ')}</span>
-              </>
-            )}
-          </div>
+        <div className="mb-8 space-y-4">
+          <Breadcrumb
+            items={[
+              { name: 'Theme Aquarium', path: '/' },
+              { name: 'Products Catalog', path: '/shop' },
+              ...(selectedCategory
+                ? [
+                    {
+                      name: selectedCategory.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
+                      path: `/category/${selectedCategory}`,
+                    },
+                  ]
+                : []),
+            ]}
+          />
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
@@ -201,7 +206,8 @@ export const ShopPage: React.FC<ShopPageProps> = ({
 
           {/* Quick Category Chips Strip */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs">
-            <button
+            <Link
+              to="/shop"
               onClick={() => onSelectCategory(null)}
               className={`px-3.5 py-1.5 rounded-sm font-bold uppercase text-[11px] whitespace-nowrap transition-all ${
                 selectedCategory === null
@@ -210,12 +216,13 @@ export const ShopPage: React.FC<ShopPageProps> = ({
               }`}
             >
               All Items ({PRODUCTS_DATA.length})
-            </button>
+            </Link>
             {CATEGORIES_DATA.map((cat) => {
               const count = PRODUCTS_DATA.filter(p => p.category === cat.id).length;
               return (
-                <button
+                <Link
                   key={cat.id}
+                  to={`/category/${cat.slug}`}
                   onClick={() => onSelectCategory(cat.id)}
                   className={`px-3 py-1.5 rounded-sm font-medium text-[11px] whitespace-nowrap transition-all ${
                     selectedCategory === cat.id
@@ -224,7 +231,7 @@ export const ShopPage: React.FC<ShopPageProps> = ({
                   }`}
                 >
                   {cat.name} {count > 0 && <span className="opacity-60 text-[10px]">({count})</span>}
-                </button>
+                </Link>
               );
             })}
           </div>
@@ -275,20 +282,22 @@ export const ShopPage: React.FC<ShopPageProps> = ({
                 >
                   {/* Image */}
                   <div className="relative h-56 w-full overflow-hidden bg-slate-950">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/images/planted-stream-waterfall.jpg';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+                    <Link to={`/product/${product.id}`} className="block w-full h-full">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/images/planted-stream-waterfall.jpg';
+                        }}
+                      />
+                    </Link>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                     {product.tag && (
-                      <span className="absolute top-3 left-3 bg-emerald-500 text-slate-950 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded shadow-md">
+                      <span className="absolute top-3 left-3 bg-emerald-500 text-slate-950 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded shadow-md pointer-events-none">
                         {product.tag}
                       </span>
                     )}
@@ -306,7 +315,7 @@ export const ShopPage: React.FC<ShopPageProps> = ({
                     </button>
 
                     {product.isLiveStock && (
-                      <span className="absolute bottom-3 left-3 text-[10px] font-mono text-cyan-300 bg-cyan-950/90 px-2 py-0.5 rounded border border-cyan-500/30 backdrop-blur-sm">
+                      <span className="absolute bottom-3 left-3 text-[10px] font-mono text-cyan-300 bg-cyan-950/90 px-2 py-0.5 rounded border border-cyan-500/30 backdrop-blur-sm pointer-events-none">
                         Quarantined Live
                       </span>
                     )}
@@ -323,12 +332,12 @@ export const ShopPage: React.FC<ShopPageProps> = ({
                         </span>
                       </div>
 
-                      <h3 
-                        onClick={() => onQuickView(product)}
-                        className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors cursor-pointer line-clamp-1"
+                      <Link 
+                        to={`/product/${product.id}`}
+                        className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-1 block"
                       >
                         {product.name}
-                      </h3>
+                      </Link>
 
                       <p className="text-xs text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">
                         {product.description}
@@ -356,13 +365,13 @@ export const ShopPage: React.FC<ShopPageProps> = ({
                       </div>
 
                       <div className="grid grid-cols-2 gap-2">
-                        <button
-                          onClick={() => onQuickView(product)}
+                        <Link
+                          to={`/product/${product.id}`}
                           className="py-2 px-3 rounded-sm bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold text-center transition-all flex items-center justify-center gap-1"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           <span>Details</span>
-                        </button>
+                        </Link>
 
                         <button
                           onClick={() => onAddToCart(product)}
@@ -389,26 +398,28 @@ export const ShopPage: React.FC<ShopPageProps> = ({
                   className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 flex flex-col sm:flex-row items-center justify-between gap-6 transition-all group"
                 >
                   <div className="flex items-center gap-4 w-full sm:w-auto">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/images/planted-stream-waterfall.jpg';
-                      }}
-                      className="w-24 h-24 rounded-xl object-cover border border-slate-800 flex-shrink-0 bg-slate-950"
-                    />
+                    <Link to={`/product/${product.id}`} className="flex-shrink-0">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/images/planted-stream-waterfall.jpg';
+                        }}
+                        className="w-24 h-24 rounded-xl object-cover border border-slate-800 bg-slate-950 hover:opacity-90 transition-opacity"
+                      />
+                    </Link>
                     <div className="space-y-1">
                       <div className="text-[10px] font-mono text-emerald-400 uppercase">
                         {product.subCategory || product.category}
                       </div>
-                      <h3 
-                        onClick={() => onQuickView(product)}
-                        className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors cursor-pointer"
+                      <Link 
+                        to={`/product/${product.id}`}
+                        className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors block"
                       >
                         {product.name}
-                      </h3>
+                      </Link>
                       <p className="text-xs text-slate-400 max-w-lg line-clamp-1">
                         {product.description}
                       </p>
@@ -435,12 +446,12 @@ export const ShopPage: React.FC<ShopPageProps> = ({
                         <Heart className="w-4 h-4 fill-current" />
                       </button>
 
-                      <button
-                        onClick={() => onQuickView(product)}
+                      <Link
+                        to={`/product/${product.id}`}
                         className="px-3.5 py-2.5 rounded-sm bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold"
                       >
                         View Specs
-                      </button>
+                      </Link>
 
                       <button
                         onClick={() => onAddToCart(product)}

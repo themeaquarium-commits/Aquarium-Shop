@@ -2,9 +2,10 @@ import React from 'react';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { CATEGORIES_DATA } from '../data/categories';
 import { CategoryItem } from '../types';
+import { Link } from '../context/RouterContext';
 
 interface CategoryGridProps {
-  onSelectCategory: (categorySlug: string) => void;
+  onSelectCategory?: (categorySlug: string) => void;
 }
 
 export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) => {
@@ -35,9 +36,10 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
         {/* 16 Category Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {CATEGORIES_DATA.map((cat: CategoryItem) => (
-            <div
+            <Link
               key={cat.id}
-              onClick={() => onSelectCategory(cat.slug)}
+              to={`/category/${cat.slug}`}
+              onClick={() => onSelectCategory && onSelectCategory(cat.slug)}
               className="group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between"
             >
               {/* Category Image with Zoom on Hover */}
@@ -84,7 +86,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

@@ -14,6 +14,7 @@ import {
 import { PRODUCTS_DATA } from '../data/products';
 import { CATEGORIES_DATA } from '../data/categories';
 import { Product } from '../types';
+import { Link } from '../context/RouterContext';
 
 interface FeaturedProductsProps {
   selectedCategory?: string;
@@ -220,20 +221,22 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                 >
                   {/* Product Image & Top Overlays */}
                   <div className="relative h-56 w-full overflow-hidden bg-slate-950">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/images/planted-stream-waterfall.jpg';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+                    <Link to={`/product/${product.id}`} className="block w-full h-full">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/images/planted-stream-waterfall.jpg';
+                        }}
+                      />
+                    </Link>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                     {/* Tag / Badge */}
-                    <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+                    <div className="absolute top-3 left-3 flex flex-col gap-1.5 pointer-events-none">
                       {product.tag && (
                         <span className="bg-emerald-500 text-slate-950 text-[10px] font-bold font-mono px-2.5 py-0.5 rounded shadow-md">
                           {product.tag}
@@ -269,7 +272,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                     </div>
 
                     {/* Stock Status Pill on Image */}
-                    <div className="absolute bottom-3 left-3">
+                    <div className="absolute bottom-3 left-3 pointer-events-none">
                       {product.inStock ? (
                         <span className="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-300 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30 backdrop-blur-sm">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
@@ -291,12 +294,12 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                         <span className="text-slate-400">★ {product.rating} ({product.reviewCount})</span>
                       </div>
 
-                      <h3 
-                        onClick={() => onQuickView(product)}
-                        className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2 cursor-pointer"
+                      <Link
+                        to={`/product/${product.id}`}
+                        className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2 block"
                       >
                         {product.name}
-                      </h3>
+                      </Link>
 
                       <p className="text-xs text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">
                         {product.description}

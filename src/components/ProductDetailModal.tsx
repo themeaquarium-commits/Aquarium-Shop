@@ -10,9 +10,11 @@ import {
   Check, 
   Sparkles,
   Info,
-  Star
+  Star,
+  ArrowUpRight
 } from 'lucide-react';
 import { Product } from '../types';
+import { Link } from '../context/RouterContext';
 
 interface ProductDetailModalProps {
   product: Product | null;
@@ -252,6 +254,16 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <MessageCircle className="w-4 h-4 fill-current" />
                   <span>Instant WhatsApp Order / Availability Check</span>
                 </button>
+
+                {/* View Dedicated Product Page Link */}
+                <Link
+                  to={`/product/${product.id}`}
+                  onClick={onClose}
+                  className="w-full py-2.5 px-4 rounded-sm bg-slate-900 hover:bg-slate-800 text-emerald-400 hover:text-emerald-300 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 border border-emerald-500/20 transition-all"
+                >
+                  <span>View Dedicated Product Page</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
 
               {/* Trust Badges */}

@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Theme Aquarium Chennai</title>
+    <title>Theme Aquarium Chennai - Loading...</title>
     <script>
-      // Single Page Apps for GitHub Pages redirect to index
-      window.location.replace('./');
+      // Single Page App redirect for GitHub Pages & Static Hosts
+      // Preserves deep route paths (e.g., /shop, /custom-aquarium-chennai) for SPA router
+      (function() {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        
+        // Redirect to root with p query param so RouterContext restores clean URL
+        var target = '/?p=' + encodeURIComponent(path + search) + hash;
+        window.location.replace(target);
+      })();
     </script>
   </head>
-  <body style="background:#030712;color:#ffffff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
-    <p>Redirecting to Theme Aquarium...</p>
+  <body style="background:#03080e;color:#10b981;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
+    <p style="font-size:14px;letter-spacing:1px;font-family:monospace;">Navigating to Theme Aquarium...</p>
   </body>
 </html>

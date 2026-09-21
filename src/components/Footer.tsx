@@ -17,10 +17,11 @@ import {
 import { ThemeAquariumLogo } from './ThemeAquariumLogo';
 import { CATEGORIES_DATA } from '../data/categories';
 import { PolicyType } from './PolicyModal';
+import { Link } from '../context/RouterContext';
 
 interface FooterProps {
-  onNavigateTab: (tab: 'home' | 'shop' | 'services' | 'about' | 'contact') => void;
-  onOpenCategory: (categoryId: string) => void;
+  onNavigateTab?: (tab: 'home' | 'shop' | 'services' | 'about' | 'contact') => void;
+  onOpenCategory?: (categoryId: string) => void;
   onOpenPolicy: (type: PolicyType) => void;
   onOpenCustomTank: () => void;
 }
@@ -140,52 +141,59 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <button
-                  onClick={() => onNavigateTab('home')}
-                  className="hover:text-emerald-400 transition-colors"
-                >
+                <Link to="/" className="hover:text-emerald-400 transition-colors">
                   Home Showcase
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateTab('shop')}
-                  className="hover:text-emerald-400 transition-colors"
-                >
+                <Link to="/shop" className="hover:text-emerald-400 transition-colors">
                   All Products Catalogue
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={onOpenCustomTank}
-                  className="hover:text-emerald-400 transition-colors text-emerald-400 font-semibold"
-                >
-                  Custom Tank Fabrication
-                </button>
+                <Link to="/custom-aquarium-chennai" className="hover:text-emerald-400 transition-colors text-emerald-400 font-semibold">
+                  Custom Starphire Aquariums
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateTab('services')}
-                  className="hover:text-emerald-400 transition-colors"
-                >
-                  Setup & AMC Services
-                </button>
+                <Link to="/aquascaping-chennai" className="hover:text-emerald-400 transition-colors">
+                  Nature Aquascaping Studio
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateTab('about')}
-                  className="hover:text-emerald-400 transition-colors"
-                >
+                <Link to="/marine-reef-aquarium-chennai" className="hover:text-cyan-400 transition-colors">
+                  Marine Reef & Saltwater
+                </Link>
+              </li>
+              <li>
+                <Link to="/koi-pond-design-chennai" className="hover:text-emerald-400 transition-colors">
+                  Japanese Koi Ponds & Waterfalls
+                </Link>
+              </li>
+              <li>
+                <Link to="/aquarium-amc-maintenance-chennai" className="hover:text-emerald-400 transition-colors">
+                  Aquarium AMC & Cleaning
+                </Link>
+              </li>
+              <li>
+                <Link to="/commercial-corporate-aquariums" className="hover:text-emerald-400 transition-colors">
+                  Commercial & B2B Solutions
+                </Link>
+              </li>
+              <li>
+                <Link to="/aquarium-chennai-locations" className="hover:text-emerald-400 transition-colors">
+                  Chennai Service Locations
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-emerald-400 transition-colors">
                   About Theme Aquarium
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateTab('contact')}
-                  className="hover:text-emerald-400 transition-colors"
-                >
-                  Contact & Location
-                </button>
+                <Link to="/contact" className="hover:text-emerald-400 transition-colors">
+                  Contact & Store Location
+                </Link>
               </li>
             </ul>
           </div>
@@ -193,20 +201,17 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Product Categories */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
-              Categories
+              Product Categories
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-2 text-xs">
               {CATEGORIES_DATA.slice(0, 10).map((cat) => (
-                <button
+                <Link
                   key={cat.id}
-                  onClick={() => {
-                    onOpenCategory(cat.id);
-                    onNavigateTab('shop');
-                  }}
+                  to={`/shop?category=${encodeURIComponent(cat.id)}`}
                   className="text-left hover:text-emerald-400 transition-colors truncate"
                 >
                   {cat.name}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -288,9 +293,19 @@ export const Footer: React.FC<FooterProps> = ({
               <h5 className="font-mono text-xs font-bold text-white uppercase tracking-wider text-emerald-400">
                 Service Locations in Chennai
               </h5>
-              <p className="text-slate-400">
-                Aquarium Adyar • Aquarium ECR • Aquarium OMR • Aquarium Neelangarai • Aquarium Palavakkam • Aquarium Velachery • Aquarium Guindy • Aquarium Porur • Aquarium Nungambakkam • Aquarium Anna Nagar • Aquarium T Nagar • Aquarium Sholinganallur • Aquarium Perungudi • Aquarium Medavakkam • Aquarium Tambaram • Aquarium Mahabalipuram • Aquarium maintenance Chennai • Aquarium AMC Chennai.
-              </p>
+              <div className="text-slate-400 flex flex-wrap gap-x-2 gap-y-1">
+                <Link to="/aquarium-adyar-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium Adyar</Link> • 
+                <Link to="/aquarium-ecr-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium ECR</Link> • 
+                <Link to="/aquarium-omr-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium OMR</Link> • 
+                <Link to="/aquarium-ecr-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium Neelangarai</Link> • 
+                <Link to="/aquarium-ecr-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium Palavakkam</Link> • 
+                <Link to="/aquarium-velachery-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium Velachery</Link> • 
+                <Link to="/aquarium-anna-nagar-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium Anna Nagar</Link> • 
+                <Link to="/aquarium-omr-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium Sholinganallur</Link> • 
+                <Link to="/aquarium-omr-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium Perungudi</Link> • 
+                <Link to="/aquarium-amc-maintenance-chennai" className="hover:text-emerald-400 underline decoration-slate-700">Aquarium AMC Maintenance Chennai</Link> • 
+                <Link to="/aquarium-chennai-locations" className="text-emerald-400 font-bold hover:underline">All Chennai Locations →</Link>
+              </div>
             </div>
 
           </div>

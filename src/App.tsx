@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { RouterProvider, useRouter } from './context/RouterContext';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { CategoryGrid } from './components/CategoryGrid';
-import { FeaturedProducts } from './components/FeaturedProducts';
-import { AquascapingSection } from './components/AquascapingSection';
-import { CustomTankSection } from './components/CustomTankSection';
-import { FishShowcase } from './components/FishShowcase';
-import { AquaticPlantsSection } from './components/AquaticPlantsSection';
-import { EquipmentSection } from './components/EquipmentSection';
-import { MarineSection } from './components/MarineSection';
-import { TerrariumSection } from './components/TerrariumSection';
-import { WhyUsSection } from './components/WhyUsSection';
-import { B2BSection } from './components/B2BSection';
-import { SeoArchitecturalSection } from './components/SeoArchitecturalSection';
-import { ServicesSection } from './components/ServicesSection';
-import { ReviewsSection } from './components/ReviewsSection';
-import { VisitStoreSection } from './components/VisitStoreSection';
 import { Footer } from './components/Footer';
 
 // Pages
+import { HomePage } from './pages/HomePage';
 import { ShopPage } from './pages/ShopPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { CustomAquariumPage } from './pages/CustomAquariumPage';
+import { AquascapingPage } from './pages/AquascapingPage';
+import { MarineReefPage } from './pages/MarineReefPage';
+import { KoiPondPage } from './pages/KoiPondPage';
+import { AmcMaintenancePage } from './pages/AmcMaintenancePage';
+import { CommercialAquariumPage } from './pages/CommercialAquariumPage';
+import { LocationsPage } from './pages/LocationsPage';
+import { CategoryPage } from './pages/CategoryPage';
+import { ProductPage } from './pages/ProductPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 // Modals & Drawers
 import { ProductDetailModal } from './components/ProductDetailModal';
@@ -33,12 +29,11 @@ import { PolicyModal, PolicyType } from './components/PolicyModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
 import { Product, CartItem } from './types';
-import { PRODUCTS_DATA } from './data/products';
 
-export default function App() {
-  // Navigation
-  const [activeTab, setActiveTab] = useState<'home' | 'shop' | 'services' | 'about' | 'contact'>('home');
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+function AppContent() {
+  const { path, queryParams, navigate } = useRouter();
+
+  // Search state
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Cart State with localStorage
@@ -84,18 +79,6 @@ export default function App() {
       console.error(e);
     }
   }, [wishlist]);
-
-  // Scroll to top on tab change
-  const handleNavigateTab = (tab: 'home' | 'shop' | 'services' | 'about' | 'contact') => {
-    setActiveTab(tab);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleSelectCategory = (catId: string | null) => {
-    setSelectedCategory(catId);
-    setActiveTab('shop');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   // Cart Actions
   const handleAddToCart = (product: Product, quantity = 1) => {
@@ -161,14 +144,152 @@ export default function App() {
   const wishlistIds = wishlist.map(p => p.id);
   const cartCount = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
 
+  // Determine which page component to render based on URL route
+  const renderCurrentPage = () => {
+    switch (path) {
+      case '/':
+        return (
+          <HomePage
+            onQuickView={(p) => setQuickViewProduct(p)}
+            onAddToCart={handleAddToCart}
+            onToggleWishlist={handleToggleWishlist}
+            wishlistIds={wishlistIds}
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+            onCheckLiveStock={handleCheckLiveStock}
+          />
+        );
+
+      case '/shop':
+        return (
+          <ShopPage
+            selectedCategory={queryParams.get('category')}
+            onSelectCategory={(cat) => {
+              if (cat) {
+                navigate(`/shop?category=${encodeURIComponent(cat)}`);
+              } else {
+                navigate('/shop');
+              }
+            }}
+            onQuickView={(p) => setQuickViewProduct(p)}
+            onAddToCart={handleAddToCart}
+            onToggleWishlist={handleToggleWishlist}
+            wishlistIds={wishlistIds}
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+            searchQuery={searchQuery}
+            onSearchQueryChange={setSearchQuery}
+          />
+        );
+
+      case '/services':
+        return (
+          <ServicesPage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+          />
+        );
+
+      case '/about':
+        return (
+          <AboutPage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+            onNavigateTab={(tab) => navigate(tab === 'home' ? '/' : '/' + tab)}
+          />
+        );
+
+      case '/contact':
+        return <ContactPage />;
+
+      case '/custom-aquarium-chennai':
+        return (
+          <CustomAquariumPage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+          />
+        );
+
+      case '/aquascaping-chennai':
+        return (
+          <AquascapingPage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+          />
+        );
+
+      case '/marine-reef-aquarium-chennai':
+        return (
+          <MarineReefPage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+          />
+        );
+
+      case '/koi-pond-design-chennai':
+        return (
+          <KoiPondPage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+          />
+        );
+
+      case '/aquarium-amc-maintenance-chennai':
+        return (
+          <AmcMaintenancePage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+          />
+        );
+
+      case '/commercial-corporate-aquariums':
+        return (
+          <CommercialAquariumPage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+          />
+        );
+
+      case '/aquarium-chennai-locations':
+      case '/aquarium-adyar-chennai':
+      case '/aquarium-ecr-chennai':
+      case '/aquarium-omr-chennai':
+      case '/aquarium-anna-nagar-chennai':
+      case '/aquarium-velachery-chennai':
+        return (
+          <LocationsPage
+            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+          />
+        );
+
+      default:
+        // Handle dynamic category route: /category/:slug
+        if (path.startsWith('/category/')) {
+          const slug = path.replace('/category/', '');
+          return (
+            <CategoryPage
+              categorySlug={slug}
+              onQuickView={(p) => setQuickViewProduct(p)}
+              onAddToCart={handleAddToCart}
+              onToggleWishlist={handleToggleWishlist}
+              wishlistIds={wishlistIds}
+              onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+            />
+          );
+        }
+
+        // Handle dynamic product route: /product/:id
+        if (path.startsWith('/product/')) {
+          const id = path.replace('/product/', '');
+          return (
+            <ProductPage
+              productId={id}
+              onAddToCart={handleAddToCart}
+              onToggleWishlist={handleToggleWishlist}
+              wishlistIds={wishlistIds}
+              onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
+            />
+          );
+        }
+
+        return <NotFoundPage />;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#030910] text-slate-100 flex flex-col selection:bg-emerald-500 selection:text-slate-950 font-sans antialiased">
-      
       {/* Global Header */}
       <Header
-        activeTab={activeTab}
-        onNavigateTab={handleNavigateTab}
-        onSelectCategory={handleSelectCategory}
         cartCount={cartCount}
         wishlistCount={wishlist.length}
         onOpenCart={() => setIsCartOpen(true)}
@@ -180,110 +301,12 @@ export default function App() {
 
       {/* Main Page Routing Switch */}
       <main className="flex-1">
-        {activeTab === 'home' && (
-          <>
-            <Hero
-              onExploreShop={() => handleNavigateTab('shop')}
-              onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
-            />
-
-            <CategoryGrid onSelectCategory={handleSelectCategory} />
-
-            <FeaturedProducts
-              onQuickView={(p) => setQuickViewProduct(p)}
-              onAddToCart={handleAddToCart}
-              onToggleWishlist={handleToggleWishlist}
-              wishlistIds={wishlistIds}
-              onViewAll={() => handleNavigateTab('shop')}
-            />
-
-            <AquascapingSection
-              onExploreAquascaping={() => handleSelectCategory('aquascaping')}
-              onOpenCustomQuote={() => setIsProjectEnquiryOpen(true)}
-            />
-
-            <CustomTankSection
-              onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
-            />
-
-            <FishShowcase
-              onQuickView={(p) => setQuickViewProduct(p)}
-              onCheckLiveStock={handleCheckLiveStock}
-            />
-
-            <AquaticPlantsSection
-              onExplorePlants={() => handleSelectCategory('aquatic-plants')}
-            />
-
-            <EquipmentSection
-              onExploreEquipment={() => handleSelectCategory('filtration-systems')}
-            />
-
-            <MarineSection
-              onExploreMarine={() => handleSelectCategory('marine-aquariums')}
-              onEnquireMarine={() => setIsProjectEnquiryOpen(true)}
-            />
-
-            <TerrariumSection
-              onExploreTerrariums={() => handleSelectCategory('terrariums')}
-            />
-
-            <WhyUsSection />
-
-            <B2BSection
-              onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
-            />
-
-            <SeoArchitecturalSection
-              onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
-            />
-
-            <ServicesSection
-              onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
-            />
-
-            <ReviewsSection />
-
-            <VisitStoreSection />
-          </>
-        )}
-
-        {activeTab === 'shop' && (
-          <ShopPage
-            selectedCategory={selectedCategory}
-            onSelectCategory={(cat) => setSelectedCategory(cat)}
-            onQuickView={(p) => setQuickViewProduct(p)}
-            onAddToCart={handleAddToCart}
-            onToggleWishlist={handleToggleWishlist}
-            wishlistIds={wishlistIds}
-            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
-            searchQuery={searchQuery}
-            onSearchQueryChange={setSearchQuery}
-          />
-        )}
-
-        {activeTab === 'services' && (
-          <ServicesPage
-            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
-          />
-        )}
-
-        {activeTab === 'about' && (
-          <AboutPage
-            onOpenProjectEnquiry={() => setIsProjectEnquiryOpen(true)}
-            onNavigateTab={handleNavigateTab}
-          />
-        )}
-
-        {activeTab === 'contact' && (
-          <ContactPage />
-        )}
+        {renderCurrentPage()}
       </main>
 
       {/* Global Footer */}
       <Footer
-        onNavigateTab={handleNavigateTab}
-        onOpenCategory={handleSelectCategory}
+        onOpenCategory={(cat) => navigate(`/shop?category=${encodeURIComponent(cat)}`)}
         onOpenPolicy={(p) => setPolicyType(p)}
         onOpenCustomTank={() => setIsProjectEnquiryOpen(true)}
       />
@@ -333,7 +356,14 @@ export default function App() {
         isOpen={!!policyType}
         onClose={() => setPolicyType(null)}
       />
-
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <RouterProvider>
+      <AppContent />
+    </RouterProvider>
   );
 }
