@@ -171,6 +171,17 @@ function generateSitemap() {
   xml += `    <image:image>\n`;
   xml += `      <image:loc>https://themeaquarium.com/images/hero-aquarium.jpg</image:loc>\n`;
   xml += `      <image:title>Theme Aquarium Chennai - Luxury Custom Aquariums, Aquascaping &amp; Marine Reefs</image:title>\n`;
+  xml += `      <image:caption>Award-winning nature aquariums, Starphire rimless glass tanks, and exotic fish studio in Adyar, Chennai</image:caption>\n`;
+  xml += `    </image:image>\n`;
+  xml += `    <image:image>\n`;
+  xml += `      <image:loc>https://themeaquarium.com/images/planted-stream-waterfall.jpg</image:loc>\n`;
+  xml += `      <image:title>Planted Stream Waterfall &amp; Riparium Chennai</image:title>\n`;
+  xml += `      <image:caption>Custom biotope waterfall and aquascaping installation by Theme Aquarium Chennai</image:caption>\n`;
+  xml += `    </image:image>\n`;
+  xml += `    <image:image>\n`;
+  xml += `      <image:loc>https://themeaquarium.com/images/custom-starphire-tank.jpg</image:loc>\n`;
+  xml += `      <image:title>Starphire Ultra-Clear Glass Custom Aquarium Fabrication</image:title>\n`;
+  xml += `      <image:caption>Custom built-in Starphire glass aquarium with German silicone bonding in Chennai</image:caption>\n`;
   xml += `    </image:image>\n`;
   xml += `  </url>\n\n`;
 
@@ -186,6 +197,7 @@ function generateSitemap() {
       xml += `    <image:image>\n`;
       xml += `      <image:loc>${route.image}</image:loc>\n`;
       xml += `      <image:title>${escapeXml(route.title)}</image:title>\n`;
+      xml += `      <image:caption>${escapeXml(route.description)}</image:caption>\n`;
       xml += `    </image:image>\n`;
     }
     xml += `  </url>\n`;
@@ -204,6 +216,7 @@ function generateSitemap() {
       xml += `    <image:image>\n`;
       xml += `      <image:loc>${catRoute.image}</image:loc>\n`;
       xml += `      <image:title>${escapeXml(catRoute.title)}</image:title>\n`;
+      xml += `      <image:caption>${escapeXml(catRoute.description)}</image:caption>\n`;
       xml += `    </image:image>\n`;
     }
     xml += `  </url>\n`;
@@ -222,6 +235,7 @@ function generateSitemap() {
       xml += `    <image:image>\n`;
       xml += `      <image:loc>${prodRoute.image}</image:loc>\n`;
       xml += `      <image:title>${escapeXml(prodRoute.title)}</image:title>\n`;
+      xml += `      <image:caption>${escapeXml(prodRoute.description)}</image:caption>\n`;
       xml += `    </image:image>\n`;
     }
     xml += `  </url>\n`;
@@ -239,13 +253,13 @@ function generateSitemap() {
     fs.writeFileSync(distSitemap, xml, 'utf-8');
   }
 
-  console.log(`Generated sitemap.xml with 1 home + ${staticRoutes.length} static + ${categoryRoutes.length} categories + ${productRoutes.length} products = ${1 + allRoutes.length} total indexed URLs!`);
+  console.log(`Successfully generated sitemap.xml with 1 home + ${staticRoutes.length} static + ${categoryRoutes.length} categories + ${productRoutes.length} products = ${1 + allRoutes.length} total indexed URLs!`);
 }
 
 function generateRoutes() {
   const indexPath = path.join(distDir, 'index.html');
   if (!fs.existsSync(indexPath)) {
-    console.warn('dist/index.html not found, skipping route generation.');
+    console.warn('dist/index.html not found, skipping HTML route generation.');
     return;
   }
 
@@ -308,7 +322,7 @@ function generateRoutes() {
   }
 
   console.log(`Successfully generated ${allRoutes.length} multi-page route directories in dist/!`);
-  generateSitemap();
 }
 
+generateSitemap();
 generateRoutes();
