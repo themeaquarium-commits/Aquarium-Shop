@@ -231,7 +231,7 @@ export function getRouteMetadata(path: string): RouteMeta {
     title: 'Theme Aquarium Chennai | Custom Aquariums, Marine Reefs & Aquascaping',
     description: 'Premier custom aquarium studio in Chennai. Specializing in Starphire glass aquariums, nature aquascaping, live coral reefs, and koi ponds.',
     keywords: 'Theme aquarium Chennai, Custom fish tanks Chennai, Aquascaping Adyar',
-    canonical: `https://themeaquarium.com${path === '/' ? '' : path}`,
+    canonical: `https://themeaquarium.com${path === '/' ? '/' : path}`,
     ogImage: 'https://themeaquarium.com/images/hero-aquarium.jpg',
     breadcrumbName: path.replace('/', '').replace(/-/g, ' ') || 'Home',
   };

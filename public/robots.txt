@@ -1,3 +1,19 @@
+# Theme Aquarium Chennai - Robots.txt
 User-agent: *
 Allow: /
+
+# Googlebot specific directives
+User-agent: Googlebot
+Allow: /
+
+# Googlebot Image Crawler for aquarium livestock and projects
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /assets/
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# XML Sitemap
 Sitemap: https://themeaquarium.com/sitemap.xml
