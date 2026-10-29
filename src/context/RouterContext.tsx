@@ -113,7 +113,16 @@ export const RouterProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) ogUrl.setAttribute('content', currentMeta.canonical);
-  }, [currentPath, currentMeta]);
+
+    // Track page views in Google Analytics 4 for client-side navigation
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', 'page_view', {
+        page_title: currentMeta.title,
+        page_location: window.location.href,
+        page_path: currentPath + currentSearch,
+      });
+    }
+  }, [currentPath, currentSearch, currentMeta]);
 
   return (
     <RouterContext.Provider
